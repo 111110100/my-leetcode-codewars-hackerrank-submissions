@@ -23,7 +23,7 @@ def coinChange(coins, amount):
             return -1
         print("")
         #time.sleep(1)
-    return e
+    return count
 
 
 coins = [25, 10, 1]
