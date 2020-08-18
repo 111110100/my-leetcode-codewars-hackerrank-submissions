@@ -19,7 +19,7 @@ class Solution:
                 return find_min(array, low, middle - 1)
 
             return find_min(array, middle + 1, high)
-        
+
         n = len(nums)
         return find_min(nums, 0, n - 1)
 

@@ -10,7 +10,7 @@ class Solution:
                 'D': 500,
                 'M': 1000
             }.get(n, '')
-        
+
         s = s.replace('IV', 'IIII').replace('IX', 'VIIII')
         s = s.replace('XL', 'XXXX').replace('XC', 'LXXXX')
         s = s.replace('CD', 'CCCC').replace('CM', 'DCCCC')
@@ -21,7 +21,7 @@ class Solution:
 
 class Solution2:
     def romanToInt(self, s: str) -> int:
-        
+
         num = 0
         my_funcs ={
             'I': (lambda num: -1 if num >= 5 else 1),
@@ -35,7 +35,7 @@ class Solution2:
         for el in reversed(list(s)):
             # print(el)
             num += my_funcs[el](num)
-        
+
         return num
 
 '''
