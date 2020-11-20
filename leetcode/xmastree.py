@@ -5,4 +5,4 @@ def xmastree(n):
     print('\n'.join(r))
 
 
-xmastree(6)
+xmastree(9)
