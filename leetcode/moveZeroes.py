@@ -1,27 +1,40 @@
-import random
+from typing import List
+
 class Solution:
-    def moveZeroes(self, nums) -> None:
+    def moveZeroes(self, nums: List[int]) -> None:
+        nums = [i for i in nums if i != 0] + [0] * nums.count(0)
+        print(nums)
         """
         Do not return anything, modify nums in-place instead.
         """
-        nums = [n for n in nums if n != 0] + [0] * nums.count(0)
-        return nums
-        #return [n for n in nums if n != 0] + [0] * nums.count(0)
 
-answer = Solution()
-print(answer.moveZeroes([0,1,0,3,12]))
-print(answer.moveZeroes([random.randint(0,1) for _ in range(10)]))
+class Solution2:
+    def moveZeroes(self, nums: List[int]) -> None:
+        nums.insert(0, nums.count(0))
+        for _ in range(nums[0]):
+            nums.remove(0)
+            nums.append(0)
+        nums.remove(nums[0])
+        print(nums)
 
-'''
-Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+class Solution3:
+    def moveZeroes(self, nums: List[int]) -> None:
+        for i in range(len(nums))[::-1]:
+            if nums[i] == 0:
+                nums.append(nums.pop(i))
 
-Example:
 
-Input: [0,1,0,3,12]
-Output: [1,3,12,0,0]
-Note:
+class Solution4:
+    def moveZeroes(self, nums: List[int]) -> None:
+        i = 0
+        for j in range(len(nums)):
+            if nums[j] != 0:
+                nums[i], nums[j] = nums[j], nums[i]
+                i += 1
 
-You must do this in-place without making a copy of the array.
-Minimize the total number of operations.
+        print(nums)
 
-'''
+        
+answer = Solution4()
+nums = [0,1,0,3,12]
+answer.moveZeroes(nums)
