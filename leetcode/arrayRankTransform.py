@@ -42,8 +42,8 @@ Output: [5,3,4,2,8,6,7,1,3]
  
 Constraints:
 
-0 <= arr.length <= 105
--109 <= arr[i] <= 109
+0 <= arr.length <= 10^5
+-10^9 <= arr[i] <= 10^9
 
     return map({a: i + 1 for i, a in enumerate(sorted(set(arr)))}.get, arr)
 
