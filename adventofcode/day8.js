@@ -635,28 +635,29 @@ acc -5
 acc -6
 acc +31
 acc -11
-jmp +1`.split("\n");
+jmp +1`.split("\n")
 
-let accumulator = 0;
-let index = 0;
-let map = [];
+let accumulator = 0
+let index = 0
+let map = []
 
 while (!map.includes(index)) {
-  map.push(index);
-  let [operation, argument] = program[index].split(" ");
+  map.push(index)
+  let [operation, argument] = program[index].split(" ")
+  console.log([operation, argument])
 
   switch (operation) {
     case "acc":
-      accumulator += parseInt(argument);
-      index++;
-      break;
+      accumulator += parseInt(argument)
+      index++
+      break
     case "jmp":
-      index += parseInt(argument);
-      break;
+      index += parseInt(argument)
+      break
     default:
-      index++;
-      break;
+      index++
+      break
   }
 }
 
-console.log(accumulator);
+console.log(accumulator)
