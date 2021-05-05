@@ -7,4 +7,4 @@ def utopianTree(n):
             h += 2
     return h
 
-print(utopianTree(0))
+print(utopianTree(10))
