@@ -2,20 +2,26 @@ from typing import List
 
 class Solution:
     def sumOddLengthSubarrays(self, arr: List[int]) -> int:
-        #if len(arr) % 2 == 0:
-        #    arr.append(0)
         size = len(arr)
         chunk = len(arr)
         total = 0
         while chunk >= 1:
             index = 0
             while index + chunk <= size:
-                #print(index + chunk, arr[index:index+chunk:])
                 total += sum(arr[index:index+chunk:])
                 index += 1
             chunk -= 2
         return total
         
+class Solution2:
+    def sumOddLengthSubarrays(self, arr: List[int]) -> int:
+        s = 0
+        for length in range(1, len(arr)+1, 2):
+            i = 0
+            while i+length <= len(arr):
+                s += sum(arr[i:i+length])
+                i += 1
+        return s
 
 answer = Solution()
 input = [1,4,2,5,3]
