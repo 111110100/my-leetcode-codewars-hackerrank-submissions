@@ -3,7 +3,7 @@ class Solution:
         numbers = sorted(numbers)
         found = False
         bottom = 0
-        top = len(numbers)
+        top = len(numbers) - 1
         while bottom <= top and not found:
             middle = (bottom + top) // 2
             if numbers[middle] == target:
