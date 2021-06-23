@@ -1,20 +1,21 @@
+from typing import List
+
 class Solution:
-    def binarySearch(self, numbers, target):
-        numbers = sorted(numbers)
-        found = False
-        bottom = 0
-        top = len(numbers) - 1
-        while bottom <= top and not found:
-            middle = (bottom + top) // 2
-            if numbers[middle] == target:
-                found = True
-                return numbers[middle] 
-            elif numbers[middle] < target:
-                bottom = middle + 1
+    def binarySearch(self, nums: List[int], target: int) -> int:
+        left = 0
+        right = len(nums)
+        while left < right:
+            middle = (left + right) // 2
+            if nums[middle] > target:
+                right = middle - 1
+            elif nums[middle] < target:
+                left = middle + 1
             else:
-                top = middle - 1
+                return nums[middle]
         return False
 
-
 answer = Solution()
-print(answer.binarySearch([3, 11, 4, 1, 43, 21, 13, 7], 13))
+print(answer.binarySearch([1,3,5,6], 5))
+print(answer.binarySearch([1,3,5,6], 2))
+print(answer.binarySearch([1,3,5,6], 6))
+print(answer.binarySearch([1,3,5,6], 0))
