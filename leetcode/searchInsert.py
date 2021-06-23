@@ -14,6 +14,21 @@ class Solution:
             else:
                 return middle
 
+class Solution2: # ^ is not O(log n)
+    def searchInsert(self, nums, target):
+        bottom = 0
+        top = len(nums)
+        while bottom < top:
+            middle = (bottom + top) // 2
+            if nums[middle] > target:
+                top = middle - 1
+            elif nums[middle] < target:
+                bottom = middle + 1
+            else:
+                return middle
+
+        return top if bottom == len(nums) else bottom if nums[bottom] >= target else bottom + 1
+
 """
 Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
 
