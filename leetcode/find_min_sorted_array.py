@@ -1,3 +1,5 @@
+from typing import List
+
 class Solution:
     def findMin(self, nums: List[int]) -> int:
         def find_min(array, low, high):

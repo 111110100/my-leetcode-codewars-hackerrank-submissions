@@ -1,4 +1,6 @@
-def kidsWithCandies(candies, extraCandies):
+from typing import List
+
+def kidsWithCandies(candies, extraCandies) -> List:
     maxCandies = max(candies)
     return [thisCandy + extraCandies >= maxCandies for thisCandy in candies]
 
